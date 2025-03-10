@@ -78,7 +78,7 @@ if (isset($_GET['f'])) {
         $offer = false;
         $subscribe = false;
         $blog = false;
-        $download = true;
+        $download = false;
     }
     elseif ($f == "popular-books") {
         $page = "components/popular-books.php";
@@ -86,7 +86,7 @@ if (isset($_GET['f'])) {
         $client = false;
         $feature = false;
         $selling = false;
-        $popular = true;
+        $popular = false;
         $quotation = false;
         $offer = false;
         $subscribe = false;
@@ -101,7 +101,7 @@ if (isset($_GET['f'])) {
         $selling = false;
         $popular = false;
         $quotation = false;
-        $offer = true;
+        $offer = false;
         $subscribe = false;
         $blog = false;
         $download = false;
@@ -116,7 +116,7 @@ if (isset($_GET['f'])) {
         $quotation = false;
         $offer = false;
         $subscribe = false;
-        $blog = true;
+        $blog = false;
         $download = false;
     }
     elseif ($f == "thankyou") {
@@ -132,19 +132,6 @@ if (isset($_GET['f'])) {
         $blog = false;
         $download = false;
     } 
-    elseif ($f == "cart") {
-        $page = "cart.php";
-        $slider = false;
-        $client = false;
-        $feature = false;
-        $selling = false;
-        $popular = false;
-        $quotation = false;
-        $offer = false;
-        $subscribe = false;
-        $blog = false;
-        $download = false;
-    }
     elseif ($f == "order") {
         $page = "order.php";
         $slider = false;

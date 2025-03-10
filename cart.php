@@ -2,6 +2,7 @@
 
 require_once 'admin/config/product.php';
 
+session_start();
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
@@ -36,7 +37,7 @@ if (isset($_POST['add_to_cart'])) {
         ];
     }
 
-    header("Location: index.php?f=cart");
+    header("Location: cart.php");
     exit;
 }
 
@@ -46,7 +47,7 @@ if (isset($_POST['remove_item'])) {
     $_SESSION['cart'] = array_filter($_SESSION['cart'], function ($item) use ($removeId) {
         return $item['id'] != $removeId;
     });
-    header("Location: index.php?f=cart");
+    header("Location: cart.php");
     exit;
 }
 
@@ -81,6 +82,7 @@ if ($totalQuantity <= 1) {
 
 ?>
 <?php include 'components/head.php'; ?>
+<?php include 'components/header.php'; ?>
 <section id="cart" class="cart py-5 my-5">
 
         <form method="post" action="cart.php">

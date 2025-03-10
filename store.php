@@ -14,7 +14,7 @@ if (isset($_POST['add_to_cart'])) {
     $price = $_POST['price'];
 
     $cart->addToCart($productId, $image, $name, $price, $sessionId);
-    header("Location: index.php?f=cart");
+    header("Location: cart.php");
     exit();
 }
 

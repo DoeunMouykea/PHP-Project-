@@ -52,10 +52,48 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="layouts.php" class="menu-link"><i class="menu-icon tf-icons bx bx-layout">
+              <a href="" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout">
                 </i>
                 <div data-i18n="Misc">Layouts</div>
               </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="slideshow.php" class="menu-link">
+                    <div data-i18n="Without menu">Slideshow</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="socialmedia.php" class="menu-link">
+                    <div data-i18n="Without navbar">Social media URL</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="iconlogo.php" class="menu-link">
+                    <div data-i18n="Container">Site Icon and Logo</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="aboutcontent.php" class="menu-link">
+                    <div data-i18n="Fluid">About Content</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="blogcontent.php" class="menu-link">
+                    <div data-i18n="Blank">Blog Content</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="contactnotification.php" class="menu-link">
+                    <div data-i18n="Blank">Contact Notification</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="pages.php" class="menu-link">
+                    <div data-i18n="Blank">Add Pages </div>
+                  </a>
+                </li>
+              </ul>
             </li>
             <!-- Components -->
             <li class="menu-header small text-uppercase">

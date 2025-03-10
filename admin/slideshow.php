@@ -25,7 +25,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                   </div>
                   <div class="modal-body">
-                    <form id="slideForm" enctype="multipart/form-data">
+                    <form id="slideForm" method="POST" enctype="multipart/form-data">
                       <div class="mb-3">
                         <label class="form-label">Title</label>
                         <input type="text" name="title" class="form-control" required>
@@ -36,7 +36,7 @@
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Link</label>
-                        <input type="url" name="link" class="form-control">
+                        <input type="text" name="link" class="form-control">
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Image</label>
@@ -58,7 +58,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                   </div>
                   <div class="modal-body">
-                    <form id="editSlideForm" enctype="multipart/form-data">
+                    <form id="editSlideForm" method="POST" enctype="multipart/form-data">
                       <input type="hidden" name="id" id="editSlideId">
                       <div class="mb-3">
                         <label class="form-label">Title</label>
@@ -131,6 +131,27 @@
   </div>
 
   <?php include 'components/footer.php'; ?>
+      <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <!-- Include jQuery -->
   <script src="assets/vendor/libs/jquery/jquery.js"></script>

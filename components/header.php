@@ -48,7 +48,7 @@ $cartCount = $cart->getCartCount(session_id());
 									class="icon icon-user"></i><span>Account</span>
 
 							</a>
-							<a href="index.php?f=cart" class="for-buy">
+							<a href="cart.php" class="for-buy">
 								<i class="icon icon-clipboard"></i>
 								Cart: <span id="cart-count">(<?= $cartCount ?>)</span></a>
 						</div><!--top-right-->
