@@ -1,3 +1,32 @@
+<?php
+
+require_once 'admin/config/db.php';
+require_once 'admin/config/socialmedia.php';
+require_once 'admin/config/store.php';
+// Get database connection
+$database = Database::getInstance();
+$db = $database->getConnection();
+// Query to get the social media URLs
+$query = "SELECT facebook, youtube, twitter, telegram, another_url FROM social_media ORDER BY id DESC LIMIT 1";
+$stmt = $db->prepare($query);
+$stmt->execute();
+
+// Fetch the data
+$socialMediaData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Fetch store details
+$store = new Store();
+$storeDetails = $store->getStoreDetails();
+$metaTitle = $storeDetails['meta_title'] ?? 'Store Name';
+$logo = $storeDetails['logo'] ?? 'default_logo.png';
+
+// Check if we got data
+$facebookUrl = $socialMediaData['facebook'] ?? '#';
+$youtubeUrl = $socialMediaData['youtube'] ?? '#';
+$twitterUrl = $socialMediaData['twitter'] ?? '#';
+$telegramUrl = $socialMediaData['telegram'] ?? '#';
+$anotherUrl = $socialMediaData['another_url'] ?? '#';
+?>
 <footer id="footer">
 		<div class="container">
 			<div class="row">
@@ -6,7 +35,7 @@
 
 					<div class="footer-item">
 						<div class="company-brand">
-							<img src="images/book logo.png" alt="logo" class="footer-logo">
+						<a href="index.php"><img src="admin/<?= $logo ?>" alt="<?= $metaTitle ?>"></a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus
 								nonet psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames
 								semper erat ac in suspendisse iaculis.</p>
@@ -129,16 +158,16 @@
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
+											<a href="<?= $facebookUrl ?>"><i class="icon icon-facebook"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
+											<a href="<?= $twitterUrl ?>"><i class="icon icon-twitter"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
+											<a href="<?= $youtubeUrl ?>"><i class="icon icon-youtube-play"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-behance-square"></i></a>
+											<a href="<?= $telegreamUrl ?>"><i class="icon icon-behance-square"></i></a>
 										</li>
 									</ul>
 								</div>

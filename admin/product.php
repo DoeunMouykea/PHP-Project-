@@ -1,6 +1,5 @@
 <?php
 require_once "config/book.php";
-
 $book = new Book();
 $books = $book->getBooks();
 ?>

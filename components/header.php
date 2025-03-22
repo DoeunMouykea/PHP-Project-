@@ -2,11 +2,37 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'admin/config/db.php';
-require_once 'admin/config/cart.php';
+	require_once 'admin/config/db.php';
+	require_once 'admin/config/cart.php';
+	require_once 'admin/config/socialmedia.php';
+	require_once 'admin/config/store.php';
 
-$cart = new Cart();
-$cartCount = $cart->getCartCount(session_id());
+	$database = Database::getInstance();
+	$db = $database->getConnection(); 
+
+	$cart = new Cart();
+	$cartCount = $cart->getCartCount(session_id());
+	// Query to get the social media URLs
+	$query = "SELECT facebook, youtube, twitter, telegram, another_url FROM social_media ORDER BY id DESC LIMIT 1";
+	$stmt = $db->prepare($query);
+	$stmt->execute();
+
+
+    // Fetch the data
+    $socialMediaData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Fetch store details
+	$store = new Store();
+	$storeDetails = $store->getStoreDetails();
+	$logo = $storeDetails['logo'] ?? 'default_logo.png';
+	$metaTitle = $storeDetails['meta_title'] ?? 'Store Name';
+
+	// Check if we got data
+    $facebookUrl = $socialMediaData['facebook'] ?? '#';
+    $youtubeUrl = $socialMediaData['youtube'] ?? '#';
+    $twitterUrl = $socialMediaData['twitter'] ?? '#';
+    $telegramUrl = $socialMediaData['telegram'] ?? '#';
+    $anotherUrl = $socialMediaData['another_url'] ?? '#';
 ?>
 <!--header-wrap-->
 <div id="header-wrap">
@@ -17,16 +43,16 @@ $cartCount = $cart->getCartCount(session_id());
 						<div class="social-links">
 							<ul>
 								<li>
-									<a href="#"><i class="icon icon-facebook"></i></a>
+									<a href="<?= $facebookUrl ?>" target="_blank"><i class="icon icon-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-twitter"></i></a>
+									<a href="<?= $twitterUrl ?>" target="_blank"><i class="icon icon-twitter"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-youtube-play"></i></a>
+									<a href="<?= $youtubeUrl ?>" target="_blank"><i class="icon icon-youtube-play"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-behance-square"></i></a>
+									<a href="<?= $telegramUrl ?>" target="_blank"><i class="icon icon-behance-square"></i></a>
 								</li>
 							</ul>
 						</div><!--social-links-->
@@ -63,7 +89,7 @@ $cartCount = $cart->getCartCount(session_id());
 				<div class="row">
 					<div class="col-md-2">
 						<div class="main-logo" >
-							<a href="index.php"><img src="images/book logo.png"  alt="logo"></a>
+							 <a href="index.php"><img src="admin/<?= $logo ?>" alt="<?= $metaTitle ?>"></a>
 						</div>
 					</div>
 					<div class="col-md-10">

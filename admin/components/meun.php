@@ -88,11 +88,7 @@
                     <div data-i18n="Blank">Contact Notification</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="pages.php" class="menu-link">
-                    <div data-i18n="Blank">Add Pages </div>
-                  </a>
-                </li>
+                
               </ul>
             </li>
             <!-- Components -->

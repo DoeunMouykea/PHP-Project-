@@ -28,7 +28,7 @@ $slides = $stmt->fetchAll();
                                             <a href="' . htmlspecialchars($slide['link']) . '" class="btn btn-outline-accent btn-accent-arrow">Shop Now<i class="icon icon-ns-arrow-right"></i></a>
                                         </div>
                                     </div>
-                                    <img src="' . htmlspecialchars($slide['image']) . '" alt="banner" width="35%"  class="banner-image">
+                                    <img src="'.'admin/images/' . htmlspecialchars($slide['image']) . '" alt="banner" width="35%"  class="banner-image">
                                 </div>
                             </div>';
                     }
